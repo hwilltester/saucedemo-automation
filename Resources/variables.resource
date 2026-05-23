@@ -38,6 +38,6 @@ ${LOC_CHECKOUT_BTN}     id:checkout
 ${LOC_FIRST_NAME}       css:[data-test="firstName"]
 ${LOC_LAST_NAME}        css:[data-test="lastName"]
 ${LOC_POSTAL_CODE}      css:[data-test="postalCode"]
-${LOC_CONTINUE_BTN}     id:continue
-${LOC_FINISH_BTN}       id:finish
+${LOC_CONTINUE_BTN}     css:[data-test="continue"]
+${LOC_FINISH_BTN}       css:[data-test="finish"]
 ${LOC_COMPLETE_HEADER}  css:.complete-header
