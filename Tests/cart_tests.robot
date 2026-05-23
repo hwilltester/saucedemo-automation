@@ -31,7 +31,7 @@ Remove Item From Cart
     Login With                  ${VALID_USER}    ${PASSWORD}
     Add Backpack To Cart
     Go To                       ${BASE_URL}/cart.html
-    Click Element               css:[data-test="remove-sauce-labs-backpack"]
+    Click Element               css:.cart_button
     Sleep                       2s
     Page Should Not Contain Element    ${LOC_CART_ITEM}
 
