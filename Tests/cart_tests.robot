@@ -22,12 +22,13 @@ Add Two Items To Cart
     Verify Cart Badge Count Is  2
 
 Remove Item From Cart
-    [Documentation]    Add backpack then remove it — cart badge must disappear.
+    [Documentation]    Add backpack then remove it — cart must be empty.
     [Tags]    cart    negative
     Login With                  ${VALID_USER}    ${PASSWORD}
     Add Backpack To Cart
     Remove Backpack From Cart
-    Page Should Not Contain Element    ${LOC_CART_BADGE}
+    Go To Cart
+    Page Should Not Contain Element    ${LOC_CART_ITEM}
 
 Cart Page Shows Added Items
     [Documentation]    Items added must appear on the cart page.
