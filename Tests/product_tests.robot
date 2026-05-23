@@ -13,12 +13,12 @@ Products Page Loads After Login
     Verify Products Page Is Shown
 
 Sort Products Low To High
-    [Documentation]    Sort by price low-to-high — first item must be Sauce Labs Bike Light.
+    [Documentation]    Sort by price low-to-high — first item must be Sauce Labs Onesie ($7.99).
     [Tags]    products    sorting
     Login With                  ${VALID_USER}    ${PASSWORD}
     Sort Products By            lohi
     ${first}=                   Get First Product Name
-    Should Be Equal             ${first}    Sauce Labs Bike Light
+    Should Be Equal             ${first}    Sauce Labs Onesie
 
 Sort Products High To Low
     [Documentation]    Sort by price high-to-low — first item must be Sauce Labs Fleece Jacket.
