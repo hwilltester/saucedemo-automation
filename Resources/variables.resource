@@ -34,7 +34,7 @@ ${LOC_REMOVE_BACKPACK}  id:remove-sauce-labs-backpack
 ${LOC_CART_ITEM}        css:.cart_item
 
 # Locators — Checkout
-${LOC_CHECKOUT_BTN}     css:[data-test="checkout"]
+${LOC_CHECKOUT_BTN}     id:checkout
 ${LOC_FIRST_NAME}       id:first-name
 ${LOC_LAST_NAME}        id:last-name
 ${LOC_POSTAL_CODE}      id:postal-code
