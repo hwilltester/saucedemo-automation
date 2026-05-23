@@ -56,16 +56,16 @@ Get First Product Name
 # ── Cart ──────────────────────────────────────────────────────────────────────
 
 Add Backpack To Cart
-    [Documentation]    Adds backpack to cart.
-    Wait Until Page Contains Element    ${LOC_ADD_BACKPACK}    ${WAIT}
+    [Documentation]    Adds backpack and waits for state to update.
+    Wait Until Page Contains Element    ${LOC_ADD_BACKPACK}       ${WAIT}
     Click Element                       ${LOC_ADD_BACKPACK}
-    Sleep                               1s
+    Wait Until Page Contains Element    ${LOC_REMOVE_BACKPACK}    ${WAIT}
 
 Add Bike Light To Cart
-    [Documentation]    Adds bike light to cart.
-    Wait Until Page Contains Element    ${LOC_ADD_BIKE_LIGHT}    ${WAIT}
+    [Documentation]    Adds bike light and waits for state to update.
+    Wait Until Page Contains Element    ${LOC_ADD_BIKE_LIGHT}     ${WAIT}
     Click Element                       ${LOC_ADD_BIKE_LIGHT}
-    Sleep                               1s
+    Wait Until Page Contains Element    id:remove-sauce-labs-bike-light    ${WAIT}
 
 Remove Backpack From Cart
     [Documentation]    Removes backpack from cart page (more reliable than products page).
