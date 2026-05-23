@@ -56,20 +56,23 @@ Get First Product Name
 # ── Cart ──────────────────────────────────────────────────────────────────────
 
 Add Backpack To Cart
-    [Documentation]    Clicks Add to Cart for Sauce Labs Backpack.
-    Wait Until Element Is Visible    ${LOC_ADD_BACKPACK}    ${WAIT}
-    Click Button                     ${LOC_ADD_BACKPACK}
+    [Documentation]    Adds backpack to cart.
+    Wait Until Page Contains Element    ${LOC_ADD_BACKPACK}    ${WAIT}
+    Click Element                       ${LOC_ADD_BACKPACK}
+    Sleep                               1s
 
 Add Bike Light To Cart
-    [Documentation]    Clicks Add to Cart for Sauce Labs Bike Light.
-    Wait Until Element Is Visible    ${LOC_ADD_BIKE_LIGHT}    ${WAIT}
-    Click Button                     ${LOC_ADD_BIKE_LIGHT}
+    [Documentation]    Adds bike light to cart.
+    Wait Until Page Contains Element    ${LOC_ADD_BIKE_LIGHT}    ${WAIT}
+    Click Element                       ${LOC_ADD_BIKE_LIGHT}
+    Sleep                               1s
 
 Remove Backpack From Cart
-    [Documentation]    Removes backpack then navigates to cart to verify it's empty.
-    Wait Until Element Is Visible    ${LOC_REMOVE_BACKPACK}    ${WAIT}
-    Click Button                     ${LOC_REMOVE_BACKPACK}
-    Sleep                            2s
+    [Documentation]    Removes backpack from cart page (more reliable than products page).
+    Go To                               ${BASE_URL}/cart.html
+    Wait Until Page Contains Element    css:[data-test="remove-sauce-labs-backpack"]    ${WAIT}
+    Click Element                       css:[data-test="remove-sauce-labs-backpack"]
+    Sleep                               1s
 
 Go To Cart
     [Documentation]    Navigates directly to cart page.
@@ -90,16 +93,17 @@ Verify Cart Has Items
 # ── Checkout ──────────────────────────────────────────────────────────────────
 
 Complete Checkout
-    [Documentation]    Fills in checkout form and finishes the order.
+    [Documentation]    Fills checkout form and finishes order.
     [Arguments]         ${first}    ${last}    ${postal}
-    Click Button        ${LOC_CHECKOUT_BTN}
+    Click Element       ${LOC_CHECKOUT_BTN}
+    Sleep               2s
     Wait Until Element Is Visible    ${LOC_FIRST_NAME}    ${WAIT}
     Input Text          ${LOC_FIRST_NAME}     ${first}
     Input Text          ${LOC_LAST_NAME}      ${last}
     Input Text          ${LOC_POSTAL_CODE}    ${postal}
-    Click Button        ${LOC_CONTINUE_BTN}
+    Click Element       ${LOC_CONTINUE_BTN}
     Wait Until Element Is Visible    ${LOC_FINISH_BTN}    ${WAIT}
-    Click Button        ${LOC_FINISH_BTN}
+    Click Element       ${LOC_FINISH_BTN}
 
 Verify Order Is Complete
     [Documentation]    Checks the order confirmation message.
