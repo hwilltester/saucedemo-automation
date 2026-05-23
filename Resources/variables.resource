@@ -35,9 +35,9 @@ ${LOC_CART_ITEM}        css:.cart_item
 
 # Locators — Checkout
 ${LOC_CHECKOUT_BTN}     id:checkout
-${LOC_FIRST_NAME}       id:first-name
-${LOC_LAST_NAME}        id:last-name
-${LOC_POSTAL_CODE}      id:postal-code
+${LOC_FIRST_NAME}       css:[data-test="firstName"]
+${LOC_LAST_NAME}        css:[data-test="lastName"]
+${LOC_POSTAL_CODE}      css:[data-test="postalCode"]
 ${LOC_CONTINUE_BTN}     id:continue
 ${LOC_FINISH_BTN}       id:finish
 ${LOC_COMPLETE_HEADER}  css:.complete-header
