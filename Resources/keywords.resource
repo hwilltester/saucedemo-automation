@@ -76,9 +76,10 @@ Go To Cart
     Wait Until Element Is Visible    ${LOC_CHECKOUT_BTN}    ${WAIT}
 
 Verify Cart Badge Count Is
-    [Documentation]    Checks the number shown on the cart icon badge.
+    [Documentation]    Waits for badge then checks the count.
     [Arguments]         ${expected_count}
-    Element Text Should Be    ${LOC_CART_BADGE}    ${expected_count}
+    Wait Until Element Is Visible    ${LOC_CART_BADGE}    ${WAIT}
+    Element Text Should Be           ${LOC_CART_BADGE}    ${expected_count}
 
 Verify Cart Has Items
     [Documentation]    Checks that at least one item is in the cart page.
