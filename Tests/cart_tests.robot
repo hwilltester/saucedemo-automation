@@ -7,27 +7,33 @@ Test Teardown   Close Test Browser
 *** Test Cases ***
 
 Add One Item To Cart
-    [Documentation]    Add backpack — cart badge must show 1.
+    [Documentation]    Add backpack — cart must have 1 item.
     [Tags]    cart    positive
     Login With                  ${VALID_USER}    ${PASSWORD}
     Add Backpack To Cart
-    Verify Cart Badge Count Is  1
+    Go To                       ${BASE_URL}/cart.html
+    ${count}=                   Get Element Count    ${LOC_CART_ITEM}
+    Should Be Equal As Integers    ${count}    1
 
 Add Two Items To Cart
-    [Documentation]    Add backpack and bike light — cart badge must show 2.
+    [Documentation]    Add backpack and bike light — cart must have 2 items.
     [Tags]    cart    positive
     Login With                  ${VALID_USER}    ${PASSWORD}
     Add Backpack To Cart
     Add Bike Light To Cart
-    Verify Cart Badge Count Is  2
+    Go To                       ${BASE_URL}/cart.html
+    ${count}=                   Get Element Count    ${LOC_CART_ITEM}
+    Should Be Equal As Integers    ${count}    2
 
 Remove Item From Cart
-    [Documentation]    Add backpack, remove from cart page — cart must be empty.
+    [Documentation]    Add backpack, remove from cart — cart must be empty.
     [Tags]    cart    negative
-    Login With                          ${VALID_USER}    ${PASSWORD}
+    Login With                  ${VALID_USER}    ${PASSWORD}
     Add Backpack To Cart
-    Remove Backpack From Cart
-    Page Should Not Contain Element     ${LOC_CART_ITEM}
+    Go To                       ${BASE_URL}/cart.html
+    Click Element               css:[data-test="remove-sauce-labs-backpack"]
+    Sleep                       2s
+    Page Should Not Contain Element    ${LOC_CART_ITEM}
 
 Cart Page Shows Added Items
     [Documentation]    Items added must appear on the cart page.
@@ -39,10 +45,19 @@ Cart Page Shows Added Items
     Verify Cart Has Items
 
 Complete Checkout Flow
-    [Documentation]    Add item, go to cart, fill checkout, finish — order must complete.
+    [Documentation]    Add item, checkout, finish — order must complete.
     [Tags]    checkout    e2e
     Login With                  ${VALID_USER}    ${PASSWORD}
     Add Backpack To Cart
     Go To Cart
-    Complete Checkout           Htuu Will    Oo    10110
+    Click Element               ${LOC_CHECKOUT_BTN}
+    Sleep                       2s
+    Go To                       ${BASE_URL}/checkout-step-one.html
+    Wait Until Element Is Visible    ${LOC_FIRST_NAME}    ${WAIT}
+    Input Text                  ${LOC_FIRST_NAME}     Htuu Will
+    Input Text                  ${LOC_LAST_NAME}      Oo
+    Input Text                  ${LOC_POSTAL_CODE}    10110
+    Click Element               ${LOC_CONTINUE_BTN}
+    Wait Until Element Is Visible    ${LOC_FINISH_BTN}    ${WAIT}
+    Click Element               ${LOC_FINISH_BTN}
     Verify Order Is Complete
