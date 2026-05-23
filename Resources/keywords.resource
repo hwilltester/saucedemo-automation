@@ -66,9 +66,10 @@ Add Bike Light To Cart
     Click Button                     ${LOC_ADD_BIKE_LIGHT}
 
 Remove Backpack From Cart
-    [Documentation]    Clicks Remove for Sauce Labs Backpack.
-    Wait Until Element Is Visible    ${LOC_REMOVE_BACKPACK}    ${WAIT}
-    Click Button                     ${LOC_REMOVE_BACKPACK}
+    [Documentation]    Removes backpack and waits for badge to disappear.
+    Wait Until Element Is Visible       ${LOC_REMOVE_BACKPACK}    ${WAIT}
+    Click Button                        ${LOC_REMOVE_BACKPACK}
+    Wait Until Page Does Not Contain    ${LOC_CART_BADGE}
 
 Go To Cart
     [Documentation]    Clicks the cart icon.
