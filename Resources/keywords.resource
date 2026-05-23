@@ -1,0 +1,105 @@
+*** Settings ***
+Library     SeleniumLibrary
+Resource    variables.resource
+
+
+*** Keywords ***
+
+# ── Browser ───────────────────────────────────────────────────────────────────
+
+Open Browser To Login Page
+    [Documentation]    Opens browser and goes to login page.
+    Open Browser    ${BASE_URL}    ${BROWSER}
+    Maximize Browser Window
+    Wait Until Element Is Visible    ${LOC_USERNAME}    ${WAIT}
+
+Close Test Browser
+    [Documentation]    Closes the browser after each test.
+    Close All Browsers
+
+
+# ── Login ─────────────────────────────────────────────────────────────────────
+
+Login With
+    [Documentation]    Logs in with the given username and password.
+    [Arguments]         ${username}    ${password}
+    Input Text          ${LOC_USERNAME}    ${username}
+    Input Password      ${LOC_PASSWORD}    ${password}
+    Click Button        ${LOC_LOGIN_BTN}
+
+Verify Products Page Is Shown
+    [Documentation]    Checks that login succeeded and products page loaded.
+    Wait Until Element Is Visible    ${LOC_PRODUCTS_TITLE}    ${WAIT}
+    Element Text Should Be           ${LOC_PRODUCTS_TITLE}    Products
+
+Verify Error Message Is Shown
+    [Documentation]    Checks that a login error message appeared.
+    Wait Until Element Is Visible    ${LOC_ERROR_MSG}    ${WAIT}
+    Element Should Be Visible        ${LOC_ERROR_MSG}
+
+
+# ── Products ──────────────────────────────────────────────────────────────────
+
+Sort Products By
+    [Documentation]    Selects a sort option from the dropdown.
+    [Arguments]         ${option}
+    Wait Until Element Is Visible    ${LOC_SORT_DROPDOWN}    ${WAIT}
+    Select From List By Value        ${LOC_SORT_DROPDOWN}    ${option}
+
+Get First Product Name
+    [Documentation]    Returns the name of the first product shown.
+    Wait Until Element Is Visible    ${LOC_FIRST_PRODUCT}    ${WAIT}
+    ${name}=    Get Text             ${LOC_FIRST_PRODUCT}
+    RETURN    ${name}
+
+
+# ── Cart ──────────────────────────────────────────────────────────────────────
+
+Add Backpack To Cart
+    [Documentation]    Clicks Add to Cart for Sauce Labs Backpack.
+    Wait Until Element Is Visible    ${LOC_ADD_BACKPACK}    ${WAIT}
+    Click Button                     ${LOC_ADD_BACKPACK}
+
+Add Bike Light To Cart
+    [Documentation]    Clicks Add to Cart for Sauce Labs Bike Light.
+    Wait Until Element Is Visible    ${LOC_ADD_BIKE_LIGHT}    ${WAIT}
+    Click Button                     ${LOC_ADD_BIKE_LIGHT}
+
+Remove Backpack From Cart
+    [Documentation]    Clicks Remove for Sauce Labs Backpack.
+    Wait Until Element Is Visible    ${LOC_REMOVE_BACKPACK}    ${WAIT}
+    Click Button                     ${LOC_REMOVE_BACKPACK}
+
+Go To Cart
+    [Documentation]    Clicks the cart icon.
+    Click Element    ${LOC_CART_ICON}
+    Wait Until Element Is Visible    ${LOC_CHECKOUT_BTN}    ${WAIT}
+
+Verify Cart Badge Count Is
+    [Documentation]    Checks the number shown on the cart icon badge.
+    [Arguments]         ${expected_count}
+    Element Text Should Be    ${LOC_CART_BADGE}    ${expected_count}
+
+Verify Cart Has Items
+    [Documentation]    Checks that at least one item is in the cart page.
+    Page Should Contain Element    ${LOC_CART_ITEM}
+
+
+# ── Checkout ──────────────────────────────────────────────────────────────────
+
+Complete Checkout
+    [Documentation]    Fills in checkout form and finishes the order.
+    [Arguments]         ${first}    ${last}    ${postal}
+    Click Button        ${LOC_CHECKOUT_BTN}
+    Wait Until Element Is Visible    ${LOC_FIRST_NAME}    ${WAIT}
+    Input Text          ${LOC_FIRST_NAME}     ${first}
+    Input Text          ${LOC_LAST_NAME}      ${last}
+    Input Text          ${LOC_POSTAL_CODE}    ${postal}
+    Click Button        ${LOC_CONTINUE_BTN}
+    Wait Until Element Is Visible    ${LOC_FINISH_BTN}    ${WAIT}
+    Click Button        ${LOC_FINISH_BTN}
+
+Verify Order Is Complete
+    [Documentation]    Checks the order confirmation message.
+    Wait Until Element Is Visible    ${LOC_COMPLETE_HEADER}    ${WAIT}
+    Element Text Should Be           ${LOC_COMPLETE_HEADER}    Thank you for your order!
