@@ -30,13 +30,13 @@ Add Two Items To Cart
 Remove Item From Cart
     [Documentation]    Add backpack, remove from cart — cart must be empty.
     [Tags]    cart    negative
-    Login With                          ${VALID_USER}    ${PASSWORD}
+    Login With                              ${VALID_USER}    ${PASSWORD}
     Add Backpack To Cart
-    Go To                               ${BASE_URL}/cart.html
-    Wait Until Page Contains Element    ${LOC_CART_ITEM}    ${WAIT}
-    Click Element                       css:button.cart_button
-    Sleep                               2s
-    Page Should Not Contain Element     ${LOC_CART_ITEM}
+    Go To                                   ${BASE_URL}/cart.html
+    Wait Until Page Contains Element        css:button.cart_button    ${WAIT}
+    Click Element                           css:button.cart_button
+    Wait Until Page Does Not Contain Element    css:button.cart_button    ${WAIT}
+    Page Should Not Contain Element         ${LOC_CART_ITEM}
 
 Cart Page Shows Added Items
     [Documentation]    Items added must appear on the cart page.
@@ -53,6 +53,7 @@ Complete Checkout Flow
     Login With                          ${VALID_USER}    ${PASSWORD}
     Add Backpack To Cart
     Go To Cart
+    Scroll Element Into View            ${LOC_CHECKOUT_BTN}
     Click Element                       ${LOC_CHECKOUT_BTN}
     Wait Until Element Is Visible       ${LOC_FIRST_NAME}    ${WAIT}
     Input Text                          ${LOC_FIRST_NAME}     Htuu Will
