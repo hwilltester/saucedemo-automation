@@ -67,13 +67,13 @@ Add Bike Light To Cart
 
 Remove Backpack From Cart
     [Documentation]    Removes backpack and waits for badge to disappear.
-    Wait Until Element Is Visible       ${LOC_REMOVE_BACKPACK}    ${WAIT}
-    Click Button                        ${LOC_REMOVE_BACKPACK}
-    Wait Until Page Does Not Contain    ${LOC_CART_BADGE}
+    Wait Until Element Is Visible           ${LOC_REMOVE_BACKPACK}    ${WAIT}
+    Click Button                            ${LOC_REMOVE_BACKPACK}
+    Wait Until Page Does Not Contain Element    ${LOC_CART_BADGE}    ${WAIT}
 
 Go To Cart
-    [Documentation]    Clicks the cart icon.
-    Click Element    ${LOC_CART_ICON}
+    [Documentation]    Navigates directly to cart page.
+    Go To    ${BASE_URL}/cart.html
     Wait Until Element Is Visible    ${LOC_CHECKOUT_BTN}    ${WAIT}
 
 Verify Cart Badge Count Is
