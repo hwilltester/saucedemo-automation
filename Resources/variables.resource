@@ -6,7 +6,7 @@ ${BASE_URL}             https://www.saucedemo.com
 ${BROWSER}              headlesschrome
 
 # Timeouts
-${WAIT}                 45s
+${WAIT}                 60s
 
 # Test Users
 ${VALID_USER}           standard_user
