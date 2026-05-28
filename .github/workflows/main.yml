@@ -42,14 +42,14 @@ jobs:
         run: |
           robot --variable BROWSER:headlesschrome \
                 --outputdir results \
-                --listener allure_robotframework:results/allure-results \
+                --listener allure_robotframework \
                 Tests/
         continue-on-error: true
 
       - name: Generate Allure report
         if: always()
         run: |
-          allure generate results/allure-results --clean -o results/allure-report
+          allure generate allure-results --clean -o results/allure-report
 
       - name: Publish to GitHub Pages
         if: github.ref == 'refs/heads/main'
