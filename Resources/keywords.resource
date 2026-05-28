@@ -63,7 +63,7 @@ Add Backpack To Cart
 
 Add Bike Light To Cart
     [Documentation]    Adds bike light and waits for state to update.
-    Wait Until Page Contains Element    ${LOC_ADD_BIKE_LIGHT}    ${WAIT}
+    Wait Until Page Contains Element    ${LOC_ADD_BIKE_LIGHT}              ${WAIT}
     Click Element                       ${LOC_ADD_BIKE_LIGHT}
     Wait Until Element Is Visible       id:remove-sauce-labs-bike-light    ${WAIT}
 
@@ -72,7 +72,7 @@ Remove Backpack From Cart
     Go To                               ${BASE_URL}/cart.html
     Wait Until Page Contains Element    css:[data-test="remove-sauce-labs-backpack"]    ${WAIT}
     Click Element                       css:[data-test="remove-sauce-labs-backpack"]
-    Sleep                               1s
+    Wait Until Element Is Not Visible   css:[data-test="remove-sauce-labs-backpack"]    ${WAIT}
 
 Go To Cart
     [Documentation]    Navigates directly to cart page.
@@ -95,8 +95,8 @@ Verify Cart Has Items
 Complete Checkout
     [Documentation]    Fills checkout form and finishes order.
     [Arguments]         ${first}    ${last}    ${postal}
-    Click Element       ${LOC_CHECKOUT_BTN}
-    Sleep               2s
+    Click Element                    ${LOC_CHECKOUT_BTN}
+    Wait Until Location Contains     checkout-step-one    ${WAIT}
     Wait Until Element Is Visible    ${LOC_FIRST_NAME}    ${WAIT}
     Input Text          ${LOC_FIRST_NAME}     ${first}
     Input Text          ${LOC_LAST_NAME}      ${last}
