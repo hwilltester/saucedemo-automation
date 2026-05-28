@@ -42,7 +42,7 @@ jobs:
         run: |
           robot --variable BROWSER:headlesschrome \
                 --outputdir results \
-                --listener allure_robotframework \
+                --listener allure_robotframework:results/allure-results \
                 Tests/
         continue-on-error: true
 
