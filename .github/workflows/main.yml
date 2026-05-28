@@ -29,12 +29,7 @@ jobs:
           sudo apt-get install -y chromium-browser
           pip install robotframework==6.1.1
           pip install robotframework-seleniumlibrary
-          pip install allure-robotframework
-
-      - name: Verify allure listener
-        run: |
-          python -c "import allure_robotframework; print('OK:', allure_robotframework.__version__)"
-          python -c "from allure_robotframework import AllureListener; print('AllureListener OK')"
+          pip install allure-robotframework==2.13.5
 
       - name: Set up Allure CLI
         run: |
@@ -56,13 +51,12 @@ jobs:
         run: |
           echo "=== allure-results ==="
           ls -la allure-results/ || echo "NOT FOUND"
-          echo "=== results ==="
-          ls -la results/ || echo "NOT FOUND"
 
       - name: Generate Allure report
         if: always()
         run: |
           allure generate allure-results --clean -o results/allure-report
+        continue-on-error: true
 
       - name: Publish to GitHub Pages
         if: github.ref == 'refs/heads/main'
@@ -70,46 +64,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: results/allure-report
-
-#name: Robot Framework Tests
-
-#on:
- # push:
-  #  branches: [main]
-  #pull_request:
-   # branches: [main]
-  #workflow_dispatch:
-
-#jobs:
- # test:
-  #  runs-on: ubuntu-latest
-
-   # steps:
-    #  - name: Checkout code
-     #   uses: actions/checkout@v4
-
-      #- name: Set up Python
-       # uses: actions/setup-python@v5
-        #with:
-         # python-version: '3.11'
-
-      #- name: Install Chrome and dependencies
-       #run: |
-        #  sudo apt-get update
-         # sudo apt-get install -y chromium-browser
-          #pip install robotframework
-          #pip install robotframework-seleniumlibrary
-
-      #- name: Run tests
-       # run: |
-        #  robot --variable BROWSER:headlesschrome \
-         #       --outputdir results \
-          #      Tests/
-        #continue-on-error: true
-
-      #- name: Upload results
-       # uses: actions/upload-artifact@v4
-        #if: always()
-        #with:
-         # name: robot-test-results
-          #path: results/
