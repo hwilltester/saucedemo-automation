@@ -27,7 +27,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y chromium-browser
-          pip install robotframework
+          pip install robotframework==6.1.1
           pip install robotframework-seleniumlibrary
           pip install allure-robotframework
 
