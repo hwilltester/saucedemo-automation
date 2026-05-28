@@ -46,6 +46,14 @@ jobs:
                 Tests/
         continue-on-error: true
 
+      - name: Debug - Check allure results
+        if: always()
+        run: |
+          echo "=== allure-results ==="
+          ls -la allure-results/ || echo "NOT FOUND"
+          echo "=== results ==="
+          ls -la results/ || echo "NOT FOUND"
+
       - name: Generate Allure report
         if: always()
         run: |
