@@ -31,6 +31,11 @@ jobs:
           pip install robotframework-seleniumlibrary
           pip install allure-robotframework
 
+      - name: Verify allure listener
+        run: |
+          python -c "import allure_robotframework; print('OK:', allure_robotframework.__version__)"
+          python -c "from allure_robotframework import AllureListener; print('AllureListener OK')"
+
       - name: Set up Allure CLI
         run: |
           wget -q https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
@@ -40,7 +45,7 @@ jobs:
 
       - name: Run tests
         run: |
-          robot --variable BROWSER:headlesschrome \
+          python -m robot --variable BROWSER:headlesschrome \
                 --outputdir results \
                 --listener allure_robotframework \
                 Tests/
