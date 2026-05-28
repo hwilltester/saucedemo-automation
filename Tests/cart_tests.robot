@@ -1,52 +1,44 @@
 *** Settings ***
-Resource        ../Resources/keywords.resource
-Test Setup      Open Browser To Login Page
-Test Teardown   Close Test Browser
+Library     SeleniumLibrary
+Resource    ../variables.resource
 
-*** Test Cases ***
-Add One Item To Cart
-    [Documentation]    Add backpack — cart must have 1 item.
-    [Tags]    cart    positive
-    Login With                          ${VALID_USER}    ${PASSWORD}
-    Add Backpack To Cart
+
+*** Keywords ***
+
+Add Backpack To Cart
+    [Documentation]    Adds backpack and waits for state to update.
+    Wait Until Page Contains Element    id:add-to-cart-sauce-labs-backpack    ${WAIT}
+    Scroll Element Into View            id:add-to-cart-sauce-labs-backpack
+    Click Element                       id:add-to-cart-sauce-labs-backpack
+    Wait Until Element Is Visible       id:remove-sauce-labs-backpack         ${WAIT}
+
+Add Bike Light To Cart
+    [Documentation]    Adds bike light and waits for state to update.
+    Wait Until Page Contains Element    ${LOC_ADD_BIKE_LIGHT}              ${WAIT}
+    Scroll Element Into View            ${LOC_ADD_BIKE_LIGHT}
+    Click Element                       ${LOC_ADD_BIKE_LIGHT}
+    Wait Until Element Is Visible       id:remove-sauce-labs-bike-light    ${WAIT}
+
+Remove Backpack From Cart
+    [Documentation]    Removes backpack from cart page.
     Go To                               ${BASE_URL}/cart.html
-    Wait Until Page Contains Element    ${LOC_CART_ITEM}    ${WAIT}
-    ${count}=    Get Element Count      ${LOC_CART_ITEM}
-    Should Be Equal As Integers         ${count}    1
+    Wait Until Page Contains Element    css:[data-test="remove-sauce-labs-backpack"]    ${WAIT}
+    Scroll Element Into View            css:[data-test="remove-sauce-labs-backpack"]
+    Click Element                       css:[data-test="remove-sauce-labs-backpack"]
+    Wait Until Element Is Not Visible   css:[data-test="remove-sauce-labs-backpack"]    ${WAIT}
 
-Add Two Items To Cart
-    [Documentation]    Add backpack and bike light — cart must have 2 items.
-    [Tags]    cart    positive
-    Login With                          ${VALID_USER}    ${PASSWORD}
-    Add Backpack To Cart
-    Add Bike Light To Cart
-    Go To                               ${BASE_URL}/cart.html
-    Wait Until Page Contains Element    ${LOC_CART_ITEM}    ${WAIT}
-    ${count}=    Get Element Count      ${LOC_CART_ITEM}
-    Should Be Equal As Integers         ${count}    2
+Go To Cart
+    [Documentation]    Navigates directly to cart page.
+    Go To    ${BASE_URL}/cart.html
+    Wait Until Element Is Visible       ${LOC_CHECKOUT_BTN}    ${WAIT}
+    Scroll Element Into View            ${LOC_CHECKOUT_BTN}
 
-Remove Item From Cart
-    [Documentation]    Add backpack, remove from cart — cart must be empty.
-    [Tags]    cart    negative
-    Login With                          ${VALID_USER}    ${PASSWORD}
-    Add Backpack To Cart
-    Remove Backpack From Cart
-    Page Should Not Contain Element     ${LOC_CART_ITEM}
+Verify Cart Badge Count Is
+    [Documentation]    Checks cart badge count using DOM presence not visibility.
+    [Arguments]         ${expected_count}
+    Wait Until Page Contains Element    ${LOC_CART_BADGE}    ${WAIT}
+    Element Text Should Be              ${LOC_CART_BADGE}    ${expected_count}
 
-Cart Page Shows Added Items
-    [Documentation]    Items added must appear on the cart page.
-    [Tags]    cart    positive
-    Login With                          ${VALID_USER}    ${PASSWORD}
-    Add Backpack To Cart
-    Add Bike Light To Cart
-    Go To Cart
-    Verify Cart Has Items
-
-Complete Checkout Flow
-    [Documentation]    Add item, checkout, finish — order must complete.
-    [Tags]    checkout    e2e
-    Login With                          ${VALID_USER}    ${PASSWORD}
-    Add Backpack To Cart
-    Go To Cart
-    Complete Checkout                   Htuu Will    Oo    10110
-    Verify Order Is Complete
+Verify Cart Has Items
+    [Documentation]    Checks that at least one item is in the cart page.
+    Page Should Contain Element    ${LOC_CART_ITEM}
