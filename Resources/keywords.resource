@@ -58,8 +58,9 @@ Get First Product Name
 Add Backpack To Cart
     [Documentation]    Adds backpack and waits for state to update.
     Wait Until Page Contains Element    ${LOC_ADD_BACKPACK}       ${WAIT}
-    Click Element                       ${LOC_ADD_BACKPACK}
-    Wait Until Page Contains Element    ${LOC_REMOVE_BACKPACK}    ${WAIT}
+    Click Element    ${LOC_ADD_BACKPACK}
+    Wait Until Element Is Not Visible    ${LOC_ADD_BACKPACK}    ${WAIT}
+    Wait Until Page Contains Element     ${LOC_REMOVE_BACKPACK}    ${WAIT}
 
 Add Bike Light To Cart
     [Documentation]    Adds bike light and waits for state to update.
