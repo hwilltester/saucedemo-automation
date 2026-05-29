@@ -1,844 +1,844 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.11.15 on linux)" generated="2026-05-29T03:42:07.436768" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.11.15 on linux)" generated="2026-05-29T03:49:16.506878" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="/home/runner/work/saucedemo-automation/saucedemo-automation/Tests">
 <suite id="s1-s1" name="Cart Tests" source="/home/runner/work/saucedemo-automation/saucedemo-automation/Tests/cart_tests.robot">
 <test id="s1-s1-t1" name="Add One Item To Cart" line="7">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.752316" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157f12750&gt;</msg>
+<msg time="2026-05-29T03:49:16.794618" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d6eac10&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.751304" elapsed="0.001054"/>
+<status status="PASS" start="2026-05-29T03:49:16.793609" elapsed="0.001050"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.752889" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.752557" elapsed="0.000499">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.794822" elapsed="0.000300"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.753194" elapsed="0.000031"/>
+<status status="PASS" start="2026-05-29T03:49:16.795251" elapsed="0.000259"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.753326" elapsed="0.000028"/>
+<status status="PASS" start="2026-05-29T03:49:16.795623" elapsed="0.000242"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.796287" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.753476" elapsed="0.000027"/>
+<status status="FAIL" start="2026-05-29T03:49:16.795972" elapsed="0.000470">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.753618" elapsed="0.000026"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.796590" elapsed="0.000029"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.753755" elapsed="0.000031"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.796730" elapsed="0.000031"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.750668" elapsed="0.003227">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.792946" elapsed="0.003924">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.754365" elapsed="0.000147"/>
+<status status="PASS" start="2026-05-29T03:49:16.797374" elapsed="0.000123"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.754126" elapsed="0.000447"/>
+<status status="PASS" start="2026-05-29T03:49:16.797142" elapsed="0.000414"/>
 </kw>
 <doc>Add backpack — cart must have 1 item.</doc>
 <tag>cart</tag>
 <tag>positive</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.749748" elapsed="0.004869">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.792217" elapsed="0.005383">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s1-t2" name="Add Two Items To Cart" line="17">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.755854" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c7d990&gt;</msg>
+<msg time="2026-05-29T03:49:16.798846" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d721e50&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.755517" elapsed="0.000366"/>
+<status status="PASS" start="2026-05-29T03:49:16.798522" elapsed="0.000358"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.756285" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.755987" elapsed="0.000413">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.798986" elapsed="0.000263"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.756523" elapsed="0.000025"/>
+<status status="PASS" start="2026-05-29T03:49:16.799349" elapsed="0.000231"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.756636" elapsed="0.000022"/>
+<status status="PASS" start="2026-05-29T03:49:16.799678" elapsed="0.000208"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.800261" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.756746" elapsed="0.000022"/>
+<status status="FAIL" start="2026-05-29T03:49:16.799984" elapsed="0.000377">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.756874" elapsed="0.000022"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.800488" elapsed="0.000025"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.756984" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.800606" elapsed="0.000022"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.755278" elapsed="0.001816">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.798314" elapsed="0.002403">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.757525" elapsed="0.000107"/>
+<status status="PASS" start="2026-05-29T03:49:16.801332" elapsed="0.000106"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.757283" elapsed="0.000408"/>
+<status status="PASS" start="2026-05-29T03:49:16.800906" elapsed="0.000589"/>
 </kw>
 <doc>Add backpack and bike light — cart must have 2 items.</doc>
 <tag>cart</tag>
 <tag>positive</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.754887" elapsed="0.002844">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.797885" elapsed="0.003649">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s1-t3" name="Remove Item From Cart" line="28">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.759123" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c7e090&gt;</msg>
+<msg time="2026-05-29T03:49:16.802703" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d71fc90&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.758809" elapsed="0.000343"/>
+<status status="PASS" start="2026-05-29T03:49:16.802398" elapsed="0.000334"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.759573" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.759251" elapsed="0.000455">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.802833" elapsed="0.000247"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.759818" elapsed="0.000025"/>
+<status status="PASS" start="2026-05-29T03:49:16.803227" elapsed="0.000218"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.759930" elapsed="0.000022"/>
+<status status="PASS" start="2026-05-29T03:49:16.803540" elapsed="0.000203"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.804119" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.760034" elapsed="0.000021"/>
+<status status="FAIL" start="2026-05-29T03:49:16.803838" elapsed="0.000368">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.760149" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.804326" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.760255" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.804440" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.758362" elapsed="0.001996">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.802206" elapsed="0.002337">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.760773" elapsed="0.000102"/>
+<status status="PASS" start="2026-05-29T03:49:16.804947" elapsed="0.000125"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.760569" elapsed="0.000362"/>
+<status status="PASS" start="2026-05-29T03:49:16.804730" elapsed="0.000401"/>
 </kw>
 <doc>Add backpack, remove from cart — cart must be empty.</doc>
 <tag>cart</tag>
 <tag>negative</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.757987" elapsed="0.002982">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.801801" elapsed="0.003369">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s1-t4" name="Cart Page Shows Added Items" line="36">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.762201" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c77450&gt;</msg>
+<msg time="2026-05-29T03:49:16.806316" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d711dd0&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.761893" elapsed="0.000338"/>
+<status status="PASS" start="2026-05-29T03:49:16.805994" elapsed="0.000351"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.762645" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.762330" elapsed="0.000407">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.806450" elapsed="0.000219"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.762845" elapsed="0.000024"/>
+<status status="PASS" start="2026-05-29T03:49:16.806765" elapsed="0.000206"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.762955" elapsed="0.000022"/>
+<status status="PASS" start="2026-05-29T03:49:16.807087" elapsed="0.000211"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.807631" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.763061" elapsed="0.000021"/>
+<status status="FAIL" start="2026-05-29T03:49:16.807391" elapsed="0.000336">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.763183" elapsed="0.000023"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.807848" elapsed="0.000024"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.763295" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.807963" elapsed="0.000022"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.761648" elapsed="0.001783">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.805804" elapsed="0.002287">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.763853" elapsed="0.000101"/>
+<status status="PASS" start="2026-05-29T03:49:16.808516" elapsed="0.000106"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.763639" elapsed="0.000371"/>
+<status status="PASS" start="2026-05-29T03:49:16.808293" elapsed="0.000385"/>
 </kw>
 <doc>Items added must appear on the cart page.</doc>
 <tag>cart</tag>
 <tag>positive</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.761218" elapsed="0.002833">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.805433" elapsed="0.003286">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s1-t5" name="Complete Checkout Flow" line="45">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.765175" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c86190&gt;</msg>
+<msg time="2026-05-29T03:49:16.810064" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d7122d0&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.764867" elapsed="0.000335"/>
+<status status="PASS" start="2026-05-29T03:49:16.809577" elapsed="0.000518"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.765613" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.765306" elapsed="0.000386">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.810198" elapsed="0.000224"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.765798" elapsed="0.000022"/>
+<status status="PASS" start="2026-05-29T03:49:16.810517" elapsed="0.000210"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.765911" elapsed="0.000026"/>
+<status status="PASS" start="2026-05-29T03:49:16.810820" elapsed="0.000225"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.811381" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.766018" elapsed="0.000021"/>
+<status status="FAIL" start="2026-05-29T03:49:16.811143" elapsed="0.000317">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.766161" elapsed="0.000023"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.811609" elapsed="0.000025"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.766272" elapsed="0.000020"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.811724" elapsed="0.000022"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.764678" elapsed="0.001693">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.809388" elapsed="0.002438">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.766794" elapsed="0.000251"/>
+<status status="PASS" start="2026-05-29T03:49:16.812225" elapsed="0.000100"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.766597" elapsed="0.000505"/>
+<status status="PASS" start="2026-05-29T03:49:16.812004" elapsed="0.000375"/>
 </kw>
 <doc>Add item, checkout, finish — order must complete.</doc>
 <tag>checkout</tag>
 <tag>e2e</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.764282" elapsed="0.002859">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.808982" elapsed="0.003434">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
-<status status="FAIL" start="2026-05-29T03:42:07.465756" elapsed="0.301804"/>
+<status status="FAIL" start="2026-05-29T03:49:16.536473" elapsed="0.276338"/>
 </suite>
 <suite id="s1-s2" name="Login Tests" source="/home/runner/work/saucedemo-automation/saucedemo-automation/Tests/login_tests.robot">
 <test id="s1-s2-t1" name="Valid Login Shows Products Page" line="9">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.772756" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c85510&gt;</msg>
+<msg time="2026-05-29T03:49:16.817970" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d738650&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.772449" elapsed="0.000335"/>
+<status status="PASS" start="2026-05-29T03:49:16.817659" elapsed="0.000340"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.773149" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.772886" elapsed="0.000342">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.818129" elapsed="0.000220"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.773334" elapsed="0.000024"/>
+<status status="PASS" start="2026-05-29T03:49:16.818447" elapsed="0.000351"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.773472" elapsed="0.000024"/>
+<status status="PASS" start="2026-05-29T03:49:16.818894" elapsed="0.000228"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.819454" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.773581" elapsed="0.000021"/>
+<status status="FAIL" start="2026-05-29T03:49:16.819216" elapsed="0.000316">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.773711" elapsed="0.000023"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.819649" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.773823" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.819762" elapsed="0.000022"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.772239" elapsed="0.001685">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.817472" elapsed="0.002391">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.774315" elapsed="0.000123"/>
+<status status="PASS" start="2026-05-29T03:49:16.820263" elapsed="0.000101"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.774105" elapsed="0.000390"/>
+<status status="PASS" start="2026-05-29T03:49:16.820063" elapsed="0.000355"/>
 </kw>
 <doc>Standard user logs in — products page must appear.</doc>
 <tag>login</tag>
 <tag>positive</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.771838" elapsed="0.002696">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.817059" elapsed="0.003396">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s2-t2" name="Locked Out User Cannot Login" line="15">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.775804" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c85650&gt;</msg>
+<msg time="2026-05-29T03:49:16.821562" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d739410&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.775496" elapsed="0.000335"/>
+<status status="PASS" start="2026-05-29T03:49:16.821264" elapsed="0.000325"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.776184" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.775931" elapsed="0.000329">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.821686" elapsed="0.000215"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.776364" elapsed="0.000044"/>
+<status status="PASS" start="2026-05-29T03:49:16.821995" elapsed="0.000249"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.776505" elapsed="0.000023"/>
+<status status="PASS" start="2026-05-29T03:49:16.822342" elapsed="0.000203"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.822869" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.776614" elapsed="0.000021"/>
+<status status="FAIL" start="2026-05-29T03:49:16.822636" elapsed="0.000309">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.776731" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.823093" elapsed="0.000025"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.776849" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.823211" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.775286" elapsed="0.001661">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.821082" elapsed="0.002228">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.777345" elapsed="0.000123"/>
+<status status="PASS" start="2026-05-29T03:49:16.823711" elapsed="0.000102"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.777152" elapsed="0.000370"/>
+<status status="PASS" start="2026-05-29T03:49:16.823515" elapsed="0.000350"/>
 </kw>
 <doc>Locked user must see an error, not get in.</doc>
 <tag>login</tag>
 <tag>negative</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.774780" elapsed="0.002780">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.820705" elapsed="0.003198">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s2-t3" name="Wrong Password Shows Error" line="21">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.778674" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c768d0&gt;</msg>
+<msg time="2026-05-29T03:49:16.825059" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d73aad0&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.778343" elapsed="0.000358"/>
+<status status="PASS" start="2026-05-29T03:49:16.824722" elapsed="0.000367"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.779051" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.778799" elapsed="0.000332">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.825189" elapsed="0.000215"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.779232" elapsed="0.000023"/>
+<status status="PASS" start="2026-05-29T03:49:16.825498" elapsed="0.000209"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.779338" elapsed="0.000021"/>
+<status status="PASS" start="2026-05-29T03:49:16.825800" elapsed="0.000201"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.826465" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.779468" elapsed="0.000022"/>
+<status status="FAIL" start="2026-05-29T03:49:16.826136" elapsed="0.000414">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.779586" elapsed="0.000022"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.826671" elapsed="0.000024"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.779695" elapsed="0.000020"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.826784" elapsed="0.000022"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.778159" elapsed="0.001638">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.824542" elapsed="0.002349">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.780159" elapsed="0.000103"/>
+<status status="PASS" start="2026-05-29T03:49:16.827453" elapsed="0.000108"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.779970" elapsed="0.000345"/>
+<status status="PASS" start="2026-05-29T03:49:16.827096" elapsed="0.000521"/>
 </kw>
 <doc>Wrong password must show an error message.</doc>
 <tag>login</tag>
 <tag>negative</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.777807" elapsed="0.002547">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.824186" elapsed="0.003470">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
-<status status="FAIL" start="2026-05-29T03:42:07.768025" elapsed="0.012639"/>
+<status status="FAIL" start="2026-05-29T03:49:16.813298" elapsed="0.014666"/>
 </suite>
 <suite id="s1-s3" name="Product Tests" source="/home/runner/work/saucedemo-automation/saucedemo-automation/Tests/product_tests.robot">
 <test id="s1-s3-t1" name="Products Page Loads After Login" line="9">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.785849" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c879d0&gt;</msg>
+<msg time="2026-05-29T03:49:16.832960" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d73f590&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.785554" elapsed="0.000322"/>
+<status status="PASS" start="2026-05-29T03:49:16.832672" elapsed="0.000316"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.786232" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.785976" elapsed="0.000329">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.833117" elapsed="0.000216"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.786431" elapsed="0.000027"/>
+<status status="PASS" start="2026-05-29T03:49:16.833428" elapsed="0.000211"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.786550" elapsed="0.000022"/>
+<status status="PASS" start="2026-05-29T03:49:16.833731" elapsed="0.000194"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.834276" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.786653" elapsed="0.000022"/>
+<status status="FAIL" start="2026-05-29T03:49:16.834015" elapsed="0.000339">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.786773" elapsed="0.000023"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.834474" elapsed="0.000024"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.786882" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.834586" elapsed="0.000022"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.785345" elapsed="0.001636">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.832482" elapsed="0.002205">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.787351" elapsed="0.000120"/>
+<status status="PASS" start="2026-05-29T03:49:16.835216" elapsed="0.000101"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.787154" elapsed="0.000371"/>
+<status status="PASS" start="2026-05-29T03:49:16.834865" elapsed="0.000505"/>
 </kw>
 <doc>Products page title must say "Products" after login.</doc>
 <tag>positive</tag>
 <tag>products</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.784966" elapsed="0.002597">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.832092" elapsed="0.003314">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s3-t2" name="Sort Products Low To High" line="15">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.788741" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c77590&gt;</msg>
+<msg time="2026-05-29T03:49:16.836533" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d73ee10&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.788440" elapsed="0.000328"/>
+<status status="PASS" start="2026-05-29T03:49:16.836248" elapsed="0.000311"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.789117" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.788866" elapsed="0.000324">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.836656" elapsed="0.000212"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.789290" elapsed="0.000023"/>
+<status status="PASS" start="2026-05-29T03:49:16.836962" elapsed="0.000233"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.789419" elapsed="0.000029"/>
+<status status="PASS" start="2026-05-29T03:49:16.837287" elapsed="0.000197"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.837801" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.789535" elapsed="0.000022"/>
+<status status="FAIL" start="2026-05-29T03:49:16.837573" elapsed="0.000299">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.789655" elapsed="0.000023"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.837986" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.789764" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.838130" elapsed="0.000023"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.788206" elapsed="0.001667">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.836015" elapsed="0.002217">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.790254" elapsed="0.000096"/>
+<status status="PASS" start="2026-05-29T03:49:16.838595" elapsed="0.000100"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.790055" elapsed="0.000369"/>
+<status status="PASS" start="2026-05-29T03:49:16.838404" elapsed="0.000343"/>
 </kw>
 <doc>Sort by price low-to-high — first item must be Sauce Labs Onesie ($7.99).</doc>
 <tag>products</tag>
 <tag>sorting</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.787800" elapsed="0.002663">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.835632" elapsed="0.003151">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s3-t3" name="Sort Products High To Low" line="23">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.791754" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157d2fc90&gt;</msg>
+<msg time="2026-05-29T03:49:16.839888" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d745750&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.791261" elapsed="0.000520"/>
+<status status="PASS" start="2026-05-29T03:49:16.839609" elapsed="0.000306"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.792134" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.791883" elapsed="0.000325">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.840042" elapsed="0.000219"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.792309" elapsed="0.000024"/>
+<status status="PASS" start="2026-05-29T03:49:16.840353" elapsed="0.000197"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.792440" elapsed="0.000024"/>
+<status status="PASS" start="2026-05-29T03:49:16.840641" elapsed="0.000195"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.841184" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.792547" elapsed="0.000022"/>
+<status status="FAIL" start="2026-05-29T03:49:16.840925" elapsed="0.000332">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.792662" elapsed="0.000022"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.841377" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.792771" elapsed="0.000021"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.841489" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.791076" elapsed="0.001791">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.839432" elapsed="0.002153">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.793225" elapsed="0.000093"/>
+<status status="PASS" start="2026-05-29T03:49:16.841950" elapsed="0.000119"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.793035" elapsed="0.000334"/>
+<status status="PASS" start="2026-05-29T03:49:16.841755" elapsed="0.000368"/>
 </kw>
 <doc>Sort by price high-to-low — first item must be Sauce Labs Fleece Jacket.</doc>
 <tag>products</tag>
 <tag>sorting</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.790700" elapsed="0.002728">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.839043" elapsed="0.003117">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
 <test id="s1-s3-t4" name="Sort Products A To Z" line="31">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.794513" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c87f90&gt;</msg>
+<msg time="2026-05-29T03:49:16.843249" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa21d751cd0&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.794193" elapsed="0.000348"/>
+<status status="PASS" start="2026-05-29T03:49:16.842935" elapsed="0.000341"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
-<msg time="2026-05-29T03:42:07.794887" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
-<arg>--headless=new</arg>
+<arg>--headless</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.794637" elapsed="0.000325">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="PASS" start="2026-05-29T03:49:16.843371" elapsed="0.000375"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.795094" elapsed="0.000025"/>
+<status status="PASS" start="2026-05-29T03:49:16.843841" elapsed="0.000225"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.795204" elapsed="0.000021"/>
+<status status="PASS" start="2026-05-29T03:49:16.844168" elapsed="0.000235"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:49:16.844724" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</msg>
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--window-size=1920,1080</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.795307" elapsed="0.000019"/>
+<status status="FAIL" start="2026-05-29T03:49:16.844495" elapsed="0.000308">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
 <arg>${BASE_URL}</arg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.795444" elapsed="0.000024"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.844917" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:42:07.795557" elapsed="0.000020"/>
+<status status="NOT RUN" start="2026-05-29T03:49:16.845047" elapsed="0.000024"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="FAIL" start="2026-05-29T03:42:07.794017" elapsed="0.001637">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.842755" elapsed="0.002393">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.796010" elapsed="0.000093"/>
+<status status="PASS" start="2026-05-29T03:49:16.845506" elapsed="0.000092"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:42:07.795822" elapsed="0.000333"/>
+<status status="PASS" start="2026-05-29T03:49:16.845317" elapsed="0.000332"/>
 </kw>
 <doc>Default sort A-Z — first item must be Sauce Labs Backpack.</doc>
 <tag>products</tag>
 <tag>sorting</tag>
-<status status="FAIL" start="2026-05-29T03:42:07.793665" elapsed="0.002525">Setup failed:
-Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+<status status="FAIL" start="2026-05-29T03:49:16.842393" elapsed="0.003292">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--window-size'</status>
 </test>
-<status status="FAIL" start="2026-05-29T03:42:07.781088" elapsed="0.015428"/>
+<status status="FAIL" start="2026-05-29T03:49:16.828411" elapsed="0.017580"/>
 </suite>
-<status status="FAIL" start="2026-05-29T03:42:07.437610" elapsed="0.359413"/>
+<status status="FAIL" start="2026-05-29T03:49:16.507718" elapsed="0.338832"/>
 </suite>
 <statistics>
 <total>
