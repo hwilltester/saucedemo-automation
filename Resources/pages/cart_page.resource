@@ -7,16 +7,14 @@ Resource    ../variables.resource
 
 Add Backpack To Cart
     [Documentation]    Adds backpack and waits for state to update.
-    Wait Until Page Contains Element    id:add-to-cart-sauce-labs-backpack    ${WAIT}
-    Scroll Element Into View            id:add-to-cart-sauce-labs-backpack
-    Click Element                       id:add-to-cart-sauce-labs-backpack
+    Wait Until Element Is Visible       id:add-to-cart-sauce-labs-backpack    ${WAIT}
+    Execute JavaScript                  document.getElementById('add-to-cart-sauce-labs-backpack').click()
     Wait Until Element Is Visible       id:remove-sauce-labs-backpack         ${WAIT}
 
 Add Bike Light To Cart
     [Documentation]    Adds bike light and waits for state to update.
-    Wait Until Page Contains Element    ${LOC_ADD_BIKE_LIGHT}    ${WAIT}
-    Scroll Element Into View            ${LOC_ADD_BIKE_LIGHT}
-    Click Element                       ${LOC_ADD_BIKE_LIGHT}
+    Wait Until Element Is Visible       ${LOC_ADD_BIKE_LIGHT}              ${WAIT}
+    Execute JavaScript                  document.getElementById('add-to-cart-sauce-labs-bike-light').click()
     Wait Until Element Is Visible       id:remove-sauce-labs-bike-light    ${WAIT}
 
 Remove Backpack From Cart
