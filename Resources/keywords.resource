@@ -12,7 +12,7 @@ Resource    pages/checkout_page.resource
 Open Browser To Login Page
     [Documentation]    Opens browser and goes to login page.
     Open Browser    ${BASE_URL}    ${BROWSER}
-    Maximize Browser Window
+    Set Window Size    1920    1080
     Wait Until Element Is Visible    ${LOC_USERNAME}    ${WAIT}
 
 Close Test Browser
