@@ -11,8 +11,12 @@ Resource    pages/checkout_page.resource
 
 Open Browser To Login Page
     [Documentation]    Opens browser and goes to login page.
-    Open Browser    ${BASE_URL}    ${BROWSER}
-    Set Window Size    1920    1080
+    ${options}=    Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium.webdriver
+    Call Method    ${options}    add_argument    --headless=new
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --window-size=1920,1080
+    Open Browser    ${BASE_URL}    Chrome    options=${options}
     Wait Until Element Is Visible    ${LOC_USERNAME}    ${WAIT}
 
 Close Test Browser
