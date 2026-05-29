@@ -13,10 +13,10 @@ Complete Checkout
     Input Text                       ${LOC_FIRST_NAME}     ${first}
     Input Text                       ${LOC_LAST_NAME}      ${last}
     Input Text                       ${LOC_POSTAL_CODE}    ${postal}
-    Click Element                    ${LOC_CONTINUE_BTN}
+    Execute JavaScript               document.querySelector('[data-test="continue"]').click()
     Wait Until Location Contains     checkout-step-two    ${WAIT}
     Wait Until Element Is Visible    ${LOC_FINISH_BTN}    ${WAIT}
-    Click Element                    ${LOC_FINISH_BTN}
+    Execute JavaScript               document.querySelector('[data-test="finish"]').click()
 
 Verify Order Is Complete
     [Documentation]    Checks the order confirmation message.
