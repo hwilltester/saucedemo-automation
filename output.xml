@@ -1,1374 +1,864 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.11.15 on linux)" generated="2026-05-29T03:00:21.990173" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.11.15 on linux)" generated="2026-05-29T03:42:07.436768" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="/home/runner/work/saucedemo-automation/saucedemo-automation/Tests">
 <suite id="s1-s1" name="Cart Tests" source="/home/runner/work/saucedemo-automation/saucedemo-automation/Tests/cart_tests.robot">
 <test id="s1-s1-t1" name="Add One Item To Cart" line="7">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:22.301481" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:00:22.301258" elapsed="11.713674"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.752316" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157f12750&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.751304" elapsed="0.001054"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.015221" elapsed="0.088830"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.752889" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.752557" elapsed="0.000499">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.753194" elapsed="0.000031"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.753326" elapsed="0.000028"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.753476" elapsed="0.000027"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.753618" elapsed="0.000026"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.104327" elapsed="0.046365"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.753755" elapsed="0.000031"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:00:22.300568" elapsed="11.850333"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:34.152281" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.151864" elapsed="0.413242"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:34.565745" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:00:34.626904" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.565362" elapsed="0.115794"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:34.681742" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.681413" elapsed="0.247101"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.151282" elapsed="0.777411"/>
-</kw>
-<kw name="Add Backpack To Cart" owner="cart_page">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.929347" elapsed="0.009546"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:34.939281" level="INFO">Clicking element 'id:add-to-cart-sauce-labs-backpack'.</msg>
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.939064" elapsed="0.055918"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id:remove-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.995241" elapsed="0.014388"/>
-</kw>
-<doc>Adds backpack and waits for state to update.</doc>
-<status status="PASS" start="2026-05-29T03:00:34.928958" elapsed="0.080803"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:35.010115" level="INFO">Opening url 'https://www.saucedemo.com/cart.html'</msg>
-<arg>${BASE_URL}/cart.html</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.009922" elapsed="0.039361"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LOC_CART_ITEM}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.049593" elapsed="0.049328"/>
-</kw>
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:35.104840" level="INFO">${count} = 1</msg>
-<var>${count}</var>
-<arg>${LOC_CART_ITEM}</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.099215" elapsed="0.005680"/>
-</kw>
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-05-29T03:00:35.105526" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${count}</arg>
-<arg>1</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.105098" elapsed="0.000531"/>
+<status status="FAIL" start="2026-05-29T03:42:07.750668" elapsed="0.003227">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.106312" elapsed="0.064317"/>
+<status status="PASS" start="2026-05-29T03:42:07.754365" elapsed="0.000147"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.105965" elapsed="0.064820"/>
+<status status="PASS" start="2026-05-29T03:42:07.754126" elapsed="0.000447"/>
 </kw>
 <doc>Add backpack — cart must have 1 item.</doc>
 <tag>cart</tag>
 <tag>positive</tag>
-<status status="PASS" start="2026-05-29T03:00:22.299816" elapsed="12.871046"/>
+<status status="FAIL" start="2026-05-29T03:42:07.749748" elapsed="0.004869">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s1-t2" name="Add Two Items To Cart" line="17">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:35.172177" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.171972" elapsed="0.480068"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.755854" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c7d990&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.755517" elapsed="0.000366"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.652331" elapsed="0.019469"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.756285" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.755987" elapsed="0.000413">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.756523" elapsed="0.000025"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.756636" elapsed="0.000022"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.756746" elapsed="0.000022"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.756874" elapsed="0.000022"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.672106" elapsed="0.022459"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.756984" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.171716" elapsed="0.523055"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:35.695979" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.695633" elapsed="0.099693"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:35.795926" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:00:35.829727" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.795562" elapsed="0.083726"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:35.879973" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.879578" elapsed="0.101700"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.695117" elapsed="0.286430"/>
-</kw>
-<kw name="Add Backpack To Cart" owner="cart_page">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.982176" elapsed="0.014037"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:35.996878" level="INFO">Clicking element 'id:add-to-cart-sauce-labs-backpack'.</msg>
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.996509" elapsed="0.049733"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id:remove-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.046553" elapsed="0.014844"/>
-</kw>
-<doc>Adds backpack and waits for state to update.</doc>
-<status status="PASS" start="2026-05-29T03:00:35.981879" elapsed="0.079650"/>
-</kw>
-<kw name="Add Bike Light To Cart" owner="cart_page">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LOC_ADD_BIKE_LIGHT}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.062096" elapsed="0.007985"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:36.070445" level="INFO">Clicking element 'id:add-to-cart-sauce-labs-bike-light'.</msg>
-<arg>${LOC_ADD_BIKE_LIGHT}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.070225" elapsed="0.044422"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id:remove-sauce-labs-bike-light</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.114937" elapsed="0.013768"/>
-</kw>
-<doc>Adds bike light and waits for state to update.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.061797" elapsed="0.067026"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:36.129159" level="INFO">Opening url 'https://www.saucedemo.com/cart.html'</msg>
-<arg>${BASE_URL}/cart.html</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.128976" elapsed="0.033876"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LOC_CART_ITEM}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.163167" elapsed="0.049227"/>
-</kw>
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:36.221359" level="INFO">${count} = 2</msg>
-<var>${count}</var>
-<arg>${LOC_CART_ITEM}</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.212658" elapsed="0.008762"/>
-</kw>
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-05-29T03:00:36.222083" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${count}</arg>
-<arg>2</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.221661" elapsed="0.000486"/>
+<status status="FAIL" start="2026-05-29T03:42:07.755278" elapsed="0.001816">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.222750" elapsed="0.064281"/>
+<status status="PASS" start="2026-05-29T03:42:07.757525" elapsed="0.000107"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.222426" elapsed="0.064728"/>
+<status status="PASS" start="2026-05-29T03:42:07.757283" elapsed="0.000408"/>
 </kw>
 <doc>Add backpack and bike light — cart must have 2 items.</doc>
 <tag>cart</tag>
 <tag>positive</tag>
-<status status="PASS" start="2026-05-29T03:00:35.171221" elapsed="1.115993"/>
+<status status="FAIL" start="2026-05-29T03:42:07.754887" elapsed="0.002844">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s1-t3" name="Remove Item From Cart" line="28">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:36.288514" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.288307" elapsed="0.506578"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.759123" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c7e090&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.758809" elapsed="0.000343"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.795236" elapsed="0.022284"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.759573" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.759251" elapsed="0.000455">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.759818" elapsed="0.000025"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.759930" elapsed="0.000022"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.760034" elapsed="0.000021"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.760149" elapsed="0.000021"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.817839" elapsed="0.024041"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.760255" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.288057" elapsed="0.553991"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:36.843262" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.842884" elapsed="0.099379"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:36.943032" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:00:36.976741" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.942572" elapsed="0.081638"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:37.024769" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.024429" elapsed="0.101912"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:00:36.842390" elapsed="0.284144"/>
-</kw>
-<kw name="Add Backpack To Cart" owner="cart_page">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.127268" elapsed="0.014100"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:37.142016" level="INFO">Clicking element 'id:add-to-cart-sauce-labs-backpack'.</msg>
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.141673" elapsed="0.049391"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id:remove-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.191338" elapsed="0.013935"/>
-</kw>
-<doc>Adds backpack and waits for state to update.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.126881" elapsed="0.078503"/>
-</kw>
-<kw name="Remove Backpack From Cart" owner="cart_page">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:37.206021" level="INFO">Opening url 'https://www.saucedemo.com/cart.html'</msg>
-<arg>${BASE_URL}/cart.html</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.205882" elapsed="0.029842"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>css:[data-test="remove-sauce-labs-backpack"]</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.236012" elapsed="0.255315"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>css:[data-test="remove-sauce-labs-backpack"]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.491546" elapsed="0.391466"/>
-</kw>
-<kw name="Mouse Over" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:37.883663" level="INFO">Simulating Mouse Over on element 'css:[data-test="remove-sauce-labs-backpack"]'.</msg>
-<arg>css:[data-test="remove-sauce-labs-backpack"]</arg>
-<doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:37.883291" elapsed="0.263221"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:00:38.147043" level="INFO">Clicking element 'css:[data-test="remove-sauce-labs-backpack"]'.</msg>
-<arg>css:[data-test="remove-sauce-labs-backpack"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:00:38.146765" elapsed="0.043159"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:01:38.457214" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-05-29T03:01:38.457398" level="FAIL">Element 'css:[data-test="remove-sauce-labs-backpack"]' still visible after 1 minute.</msg>
-<arg>css:[data-test="remove-sauce-labs-backpack"]</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="FAIL" start="2026-05-29T03:00:38.190152" elapsed="60.268311">Element 'css:[data-test="remove-sauce-labs-backpack"]' still visible after 1 minute.</status>
-</kw>
-<doc>Removes backpack from cart page.</doc>
-<status status="FAIL" start="2026-05-29T03:00:37.205604" elapsed="61.253053">Element 'css:[data-test="remove-sauce-labs-backpack"]' still visible after 1 minute.</status>
-</kw>
-<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
-<arg>${LOC_CART_ITEM}</arg>
-<doc>Verifies that element ``locator`` is not found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-29T03:01:38.458820" elapsed="0.000032"/>
+<status status="FAIL" start="2026-05-29T03:42:07.758362" elapsed="0.001996">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:01:38.459316" elapsed="0.078413"/>
+<status status="PASS" start="2026-05-29T03:42:07.760773" elapsed="0.000102"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:01:38.459090" elapsed="0.078789"/>
+<status status="PASS" start="2026-05-29T03:42:07.760569" elapsed="0.000362"/>
 </kw>
 <doc>Add backpack, remove from cart — cart must be empty.</doc>
 <tag>cart</tag>
 <tag>negative</tag>
-<status status="FAIL" start="2026-05-29T03:00:36.287556" elapsed="62.250396">Element 'css:[data-test="remove-sauce-labs-backpack"]' still visible after 1 minute.</status>
+<status status="FAIL" start="2026-05-29T03:42:07.757987" elapsed="0.002982">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s1-t4" name="Cart Page Shows Added Items" line="36">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:01:38.539225" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:01:38.539020" elapsed="0.613921"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.762201" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c77450&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.761893" elapsed="0.000338"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.153244" elapsed="0.016048"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.762645" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.762330" elapsed="0.000407">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.762845" elapsed="0.000024"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.762955" elapsed="0.000022"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.763061" elapsed="0.000021"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.763183" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.169600" elapsed="0.022933"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.763295" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:01:38.538766" elapsed="0.653975"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:01:39.193760" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.193446" elapsed="0.107876"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:01:39.302128" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:01:39.336573" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.301666" elapsed="0.082136"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:01:39.384316" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.384042" elapsed="0.107619"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.193055" elapsed="0.298774"/>
-</kw>
-<kw name="Add Backpack To Cart" owner="cart_page">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.492489" elapsed="0.014704"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:01:39.507846" level="INFO">Clicking element 'id:add-to-cart-sauce-labs-backpack'.</msg>
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.507481" elapsed="0.051617"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id:remove-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.559360" elapsed="0.014663"/>
-</kw>
-<doc>Adds backpack and waits for state to update.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.492133" elapsed="0.082016"/>
-</kw>
-<kw name="Add Bike Light To Cart" owner="cart_page">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LOC_ADD_BIKE_LIGHT}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.574653" elapsed="0.008213"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:01:39.583313" level="INFO">Clicking element 'id:add-to-cart-sauce-labs-bike-light'.</msg>
-<arg>${LOC_ADD_BIKE_LIGHT}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:01:39.583046" elapsed="0.049122"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:02:39.890332" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-05-29T03:02:39.890497" level="FAIL">Element 'id:remove-sauce-labs-bike-light' not visible after 1 minute.</msg>
-<arg>id:remove-sauce-labs-bike-light</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-05-29T03:01:39.632392" elapsed="60.258580">Element 'id:remove-sauce-labs-bike-light' not visible after 1 minute.</status>
-</kw>
-<doc>Adds bike light and waits for state to update.</doc>
-<status status="FAIL" start="2026-05-29T03:01:39.574370" elapsed="60.316802">Element 'id:remove-sauce-labs-bike-light' not visible after 1 minute.</status>
-</kw>
-<kw name="Go To Cart" owner="cart_page">
-<doc>Navigates directly to cart page.</doc>
-<status status="NOT RUN" start="2026-05-29T03:02:39.891384" elapsed="0.000034"/>
-</kw>
-<kw name="Verify Cart Has Items" owner="cart_page">
-<doc>Checks that at least one item is in the cart page.</doc>
-<status status="NOT RUN" start="2026-05-29T03:02:39.891516" elapsed="0.000020"/>
+<status status="FAIL" start="2026-05-29T03:42:07.761648" elapsed="0.001783">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:02:39.892008" elapsed="0.074946"/>
+<status status="PASS" start="2026-05-29T03:42:07.763853" elapsed="0.000101"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:02:39.891771" elapsed="0.075309"/>
+<status status="PASS" start="2026-05-29T03:42:07.763639" elapsed="0.000371"/>
 </kw>
 <doc>Items added must appear on the cart page.</doc>
 <tag>cart</tag>
 <tag>positive</tag>
-<status status="FAIL" start="2026-05-29T03:01:38.538317" elapsed="61.428826">Element 'id:remove-sauce-labs-bike-light' not visible after 1 minute.</status>
+<status status="FAIL" start="2026-05-29T03:42:07.761218" elapsed="0.002833">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s1-t5" name="Complete Checkout Flow" line="45">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:02:39.968472" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:02:39.968272" elapsed="0.467180"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.765175" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c86190&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.764867" elapsed="0.000335"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.435788" elapsed="0.017132"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.765613" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.765306" elapsed="0.000386">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.765798" elapsed="0.000022"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.765911" elapsed="0.000026"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.766018" elapsed="0.000021"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.766161" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.453217" elapsed="0.027435"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.766272" elapsed="0.000020"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:02:39.968028" elapsed="0.512797"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:02:40.481911" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.481550" elapsed="0.105523"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:02:40.587659" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:02:40.617989" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.587299" elapsed="0.076043"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:02:40.664035" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.663643" elapsed="0.107596"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.481150" elapsed="0.290280"/>
-</kw>
-<kw name="Add Backpack To Cart" owner="cart_page">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.772249" elapsed="0.024002"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:02:40.796940" level="INFO">Clicking element 'id:add-to-cart-sauce-labs-backpack'.</msg>
-<arg>id:add-to-cart-sauce-labs-backpack</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.796545" elapsed="0.056621"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id:remove-sauce-labs-backpack</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.853431" elapsed="0.014238"/>
-</kw>
-<doc>Adds backpack and waits for state to update.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.771799" elapsed="0.095988"/>
-</kw>
-<kw name="Go To Cart" owner="cart_page">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:02:40.868387" level="INFO">Opening url 'https://www.saucedemo.com/cart.html'</msg>
-<arg>${BASE_URL}/cart.html</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.868246" elapsed="0.049186"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_CHECKOUT_BTN}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.917727" elapsed="0.058586"/>
-</kw>
-<doc>Navigates directly to cart page.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.867994" elapsed="0.108488"/>
-</kw>
-<kw name="Complete Checkout" owner="checkout_page">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:02:40.977507" level="INFO">Clicking element 'id:checkout'.</msg>
-<arg>${LOC_CHECKOUT_BTN}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:02:40.977261" elapsed="0.047419"/>
-</kw>
-<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:41.154865" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-05-29T03:03:41.155045" level="FAIL">Location did not contain 'checkout-step-one' in 1 minute.</msg>
-<arg>checkout-step-one</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the current URL contains ``expected``.</doc>
-<status status="FAIL" start="2026-05-29T03:02:41.024902" elapsed="60.130531">Location did not contain 'checkout-step-one' in 1 minute.</status>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_FIRST_NAME}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.155659" elapsed="0.000041"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${LOC_FIRST_NAME}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.155789" elapsed="0.000019"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${LOC_FIRST_NAME}</arg>
-<arg>${first}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.155881" elapsed="0.000016"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${LOC_LAST_NAME}</arg>
-<arg>${last}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.155963" elapsed="0.000015"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${LOC_POSTAL_CODE}</arg>
-<arg>${postal}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.156040" elapsed="0.000015"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${LOC_CONTINUE_BTN}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.156118" elapsed="0.000050"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>${LOC_CONTINUE_BTN}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.156238" elapsed="0.000015"/>
-</kw>
-<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
-<arg>checkout-step-two</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the current URL contains ``expected``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.156315" elapsed="0.000015"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_FINISH_BTN}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.156396" elapsed="0.000014"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>${LOC_FINISH_BTN}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.156473" elapsed="0.000014"/>
-</kw>
-<arg>Htuu Will</arg>
-<arg>Oo</arg>
-<arg>10110</arg>
-<doc>Fills checkout form and finishes order.</doc>
-<status status="FAIL" start="2026-05-29T03:02:40.976866" elapsed="60.179716">Location did not contain 'checkout-step-one' in 1 minute.</status>
-</kw>
-<kw name="Verify Order Is Complete" owner="checkout_page">
-<doc>Checks the order confirmation message.</doc>
-<status status="NOT RUN" start="2026-05-29T03:03:41.156788" elapsed="0.000027"/>
+<status status="FAIL" start="2026-05-29T03:42:07.764678" elapsed="0.001693">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.157221" elapsed="0.075739"/>
+<status status="PASS" start="2026-05-29T03:42:07.766794" elapsed="0.000251"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.157011" elapsed="0.076074"/>
+<status status="PASS" start="2026-05-29T03:42:07.766597" elapsed="0.000505"/>
 </kw>
 <doc>Add item, checkout, finish — order must complete.</doc>
 <tag>checkout</tag>
 <tag>e2e</tag>
-<status status="FAIL" start="2026-05-29T03:02:39.967473" elapsed="61.265674">Location did not contain 'checkout-step-one' in 1 minute.</status>
+<status status="FAIL" start="2026-05-29T03:42:07.764282" elapsed="0.002859">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
-<status status="FAIL" start="2026-05-29T03:00:22.016772" elapsed="199.216963"/>
+<status status="FAIL" start="2026-05-29T03:42:07.465756" elapsed="0.301804"/>
 </suite>
 <suite id="s1-s2" name="Login Tests" source="/home/runner/work/saucedemo-automation/saucedemo-automation/Tests/login_tests.robot">
 <test id="s1-s2-t1" name="Valid Login Shows Products Page" line="9">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:41.240515" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.240340" elapsed="0.469611"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.772756" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c85510&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.772449" elapsed="0.000335"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.710275" elapsed="0.017096"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.773149" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.772886" elapsed="0.000342">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.773334" elapsed="0.000024"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.773472" elapsed="0.000024"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.773581" elapsed="0.000021"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.773711" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.727697" elapsed="0.025741"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.773823" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.240138" elapsed="0.514114"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:41.755515" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.755149" elapsed="0.106096"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:41.861873" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:03:41.894106" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.861494" elapsed="0.079183"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:41.941229" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.940925" elapsed="0.108312"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:03:41.754660" elapsed="0.294774"/>
-</kw>
-<kw name="Verify Products Page Is Shown" owner="login_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_PRODUCTS_TITLE}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.050113" elapsed="0.019568"/>
-</kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:42.070395" level="INFO">Verifying element 'css:.title' contains exact text 'Products'.</msg>
-<arg>${LOC_PRODUCTS_TITLE}</arg>
-<arg>Products</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.069981" elapsed="0.015770"/>
-</kw>
-<doc>Checks that login succeeded and products page loaded.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.049792" elapsed="0.036078"/>
+<status status="FAIL" start="2026-05-29T03:42:07.772239" elapsed="0.001685">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.086469" elapsed="0.063433"/>
+<status status="PASS" start="2026-05-29T03:42:07.774315" elapsed="0.000123"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.086188" elapsed="0.063845"/>
+<status status="PASS" start="2026-05-29T03:42:07.774105" elapsed="0.000390"/>
 </kw>
 <doc>Standard user logs in — products page must appear.</doc>
 <tag>login</tag>
 <tag>positive</tag>
-<status status="PASS" start="2026-05-29T03:03:41.239729" elapsed="0.910366"/>
+<status status="FAIL" start="2026-05-29T03:42:07.771838" elapsed="0.002696">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s2-t2" name="Locked Out User Cannot Login" line="15">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:42.151443" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.151230" elapsed="0.479266"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.775804" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c85650&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.775496" elapsed="0.000335"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.630836" elapsed="0.014808"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.776184" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.775931" elapsed="0.000329">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.776364" elapsed="0.000044"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.776505" elapsed="0.000023"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.776614" elapsed="0.000021"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.776731" elapsed="0.000021"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.645871" elapsed="0.025504"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.776849" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.150965" elapsed="0.520572"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:42.672663" level="INFO">Typing text 'locked_out_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.672285" elapsed="0.103673"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:42.776556" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:03:42.808276" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.776190" elapsed="0.079785"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:42.856462" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.856188" elapsed="0.079255"/>
-</kw>
-<arg>${LOCKED_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.671897" elapsed="0.263732"/>
-</kw>
-<kw name="Verify Error Message Is Shown" owner="login_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_ERROR_MSG}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.936170" elapsed="0.013706"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:42.958989" level="INFO">Element 'css:[data-test="error"]' is displayed.</msg>
-<arg>${LOC_ERROR_MSG}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.950039" elapsed="0.009016"/>
-</kw>
-<doc>Checks that a login error message appeared.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.935894" elapsed="0.023229"/>
+<status status="FAIL" start="2026-05-29T03:42:07.775286" elapsed="0.001661">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.959579" elapsed="0.062790"/>
+<status status="PASS" start="2026-05-29T03:42:07.777345" elapsed="0.000123"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:03:42.959351" elapsed="0.063142"/>
+<status status="PASS" start="2026-05-29T03:42:07.777152" elapsed="0.000370"/>
 </kw>
 <doc>Locked user must see an error, not get in.</doc>
 <tag>login</tag>
 <tag>negative</tag>
-<status status="PASS" start="2026-05-29T03:03:42.150425" elapsed="0.872130"/>
+<status status="FAIL" start="2026-05-29T03:42:07.774780" elapsed="0.002780">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s2-t3" name="Wrong Password Shows Error" line="21">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:43.023800" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.023566" elapsed="0.469039"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.778674" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c768d0&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.778343" elapsed="0.000358"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.492894" elapsed="0.016996"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.779051" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.778799" elapsed="0.000332">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.779232" elapsed="0.000023"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.779338" elapsed="0.000021"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.779468" elapsed="0.000022"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.779586" elapsed="0.000022"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.510179" elapsed="0.020235"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.779695" elapsed="0.000020"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.023327" elapsed="0.507270"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:43.531865" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.531470" elapsed="0.105170"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:43.637400" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:03:43.670271" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.636934" elapsed="0.084545"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:43.722221" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.721800" elapsed="0.084301"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${WRONG_PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.530968" elapsed="0.275274"/>
-</kw>
-<kw name="Verify Error Message Is Shown" owner="login_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_ERROR_MSG}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.806771" elapsed="0.014142"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:43.830159" level="INFO">Element 'css:[data-test="error"]' is displayed.</msg>
-<arg>${LOC_ERROR_MSG}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.821079" elapsed="0.009146"/>
-</kw>
-<doc>Checks that a login error message appeared.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.806461" elapsed="0.023832"/>
+<status status="FAIL" start="2026-05-29T03:42:07.778159" elapsed="0.001638">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.830771" elapsed="0.063229"/>
+<status status="PASS" start="2026-05-29T03:42:07.780159" elapsed="0.000103"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.830517" elapsed="0.063599"/>
+<status status="PASS" start="2026-05-29T03:42:07.779970" elapsed="0.000345"/>
 </kw>
 <doc>Wrong password must show an error message.</doc>
 <tag>login</tag>
 <tag>negative</tag>
-<status status="PASS" start="2026-05-29T03:03:43.022899" elapsed="0.871281"/>
+<status status="FAIL" start="2026-05-29T03:42:07.777807" elapsed="0.002547">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
-<status status="PASS" start="2026-05-29T03:03:41.234201" elapsed="2.660365"/>
+<status status="FAIL" start="2026-05-29T03:42:07.768025" elapsed="0.012639"/>
 </suite>
 <suite id="s1-s3" name="Product Tests" source="/home/runner/work/saucedemo-automation/saucedemo-automation/Tests/product_tests.robot">
 <test id="s1-s3-t1" name="Products Page Loads After Login" line="9">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:43.899653" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.899448" elapsed="0.483099"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.785849" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c879d0&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.785554" elapsed="0.000322"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.382876" elapsed="0.018451"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.786232" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.785976" elapsed="0.000329">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.786431" elapsed="0.000027"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.786550" elapsed="0.000022"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.786653" elapsed="0.000022"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.786773" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.401659" elapsed="0.024810"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.786882" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:03:43.899228" elapsed="0.527377"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:44.427546" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.427270" elapsed="0.101105"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:44.529178" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:03:44.561288" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.528690" elapsed="0.079806"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:44.609292" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.608871" elapsed="0.106651"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.426905" elapsed="0.288800"/>
-</kw>
-<kw name="Verify Products Page Is Shown" owner="login_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_PRODUCTS_TITLE}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.716419" elapsed="0.022178"/>
-</kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:44.739173" level="INFO">Verifying element 'css:.title' contains exact text 'Products'.</msg>
-<arg>${LOC_PRODUCTS_TITLE}</arg>
-<arg>Products</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.738855" elapsed="0.015428"/>
-</kw>
-<doc>Checks that login succeeded and products page loaded.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.716014" elapsed="0.038396"/>
+<status status="FAIL" start="2026-05-29T03:42:07.785345" elapsed="0.001636">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.755151" elapsed="0.064433"/>
+<status status="PASS" start="2026-05-29T03:42:07.787351" elapsed="0.000120"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.754733" elapsed="0.065002"/>
+<status status="PASS" start="2026-05-29T03:42:07.787154" elapsed="0.000371"/>
 </kw>
 <doc>Products page title must say "Products" after login.</doc>
 <tag>positive</tag>
 <tag>products</tag>
-<status status="PASS" start="2026-05-29T03:03:43.898836" elapsed="0.920960"/>
+<status status="FAIL" start="2026-05-29T03:42:07.784966" elapsed="0.002597">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s3-t2" name="Sort Products Low To High" line="15">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:44.821277" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.821061" elapsed="0.481638"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.788741" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c77590&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.788440" elapsed="0.000328"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.302976" elapsed="0.021595"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.789117" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.788866" elapsed="0.000324">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.789290" elapsed="0.000023"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.789419" elapsed="0.000029"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.789535" elapsed="0.000022"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.789655" elapsed="0.000023"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.324851" elapsed="0.023445"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.789764" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:03:44.820771" elapsed="0.527696"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:45.349686" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.349294" elapsed="0.101871"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:45.452022" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:03:45.482198" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.451532" elapsed="0.078259"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:45.530286" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.530008" elapsed="0.103560"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.348835" elapsed="0.284936"/>
-</kw>
-<kw name="Sort Products By" owner="products_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_SORT_DROPDOWN}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.634476" elapsed="0.018676"/>
-</kw>
-<kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:45.653742" level="INFO">Selecting options from selection list 'css:[data-test="product-sort-container"]' by value lohi.</msg>
-<arg>${LOC_SORT_DROPDOWN}</arg>
-<arg>${option}</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.653379" elapsed="0.067978"/>
-</kw>
-<arg>lohi</arg>
-<doc>Selects a sort option from the dropdown.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.634089" elapsed="0.087449"/>
-</kw>
-<kw name="Get First Product Name" owner="products_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_FIRST_PRODUCT}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.722216" elapsed="0.017776"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:45.762678" level="INFO">${name} = Sauce Labs Onesie</msg>
-<var>${name}</var>
-<arg>${LOC_FIRST_PRODUCT}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.740248" elapsed="0.022483"/>
-</kw>
-<return>
-<value>${name}</value>
-<status status="PASS" start="2026-05-29T03:03:45.762830" elapsed="0.000074"/>
-</return>
-<msg time="2026-05-29T03:03:45.763044" level="INFO">${first} = Sauce Labs Onesie</msg>
-<var>${first}</var>
-<doc>Returns the name of the first product shown.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.721899" elapsed="0.041167"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${first}</arg>
-<arg>Sauce Labs Onesie</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.763221" elapsed="0.000361"/>
+<status status="FAIL" start="2026-05-29T03:42:07.788206" elapsed="0.001667">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.764037" elapsed="0.063374"/>
+<status status="PASS" start="2026-05-29T03:42:07.790254" elapsed="0.000096"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.763812" elapsed="0.063720"/>
+<status status="PASS" start="2026-05-29T03:42:07.790055" elapsed="0.000369"/>
 </kw>
 <doc>Sort by price low-to-high — first item must be Sauce Labs Onesie ($7.99).</doc>
 <tag>products</tag>
 <tag>sorting</tag>
-<status status="PASS" start="2026-05-29T03:03:44.820097" elapsed="1.007491"/>
+<status status="FAIL" start="2026-05-29T03:42:07.787800" elapsed="0.002663">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s3-t3" name="Sort Products High To Low" line="23">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:45.829099" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.828894" elapsed="0.477083"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.791754" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157d2fc90&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.791261" elapsed="0.000520"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.306256" elapsed="0.017566"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.792134" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.791883" elapsed="0.000325">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.792309" elapsed="0.000024"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.792440" elapsed="0.000024"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.792547" elapsed="0.000022"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.792662" elapsed="0.000022"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.324049" elapsed="0.028219"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.792771" elapsed="0.000021"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:03:45.828590" elapsed="0.524287"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:46.354011" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.353667" elapsed="0.103742"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:46.458010" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:03:46.490632" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.457667" elapsed="0.080247"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:46.538409" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.538133" elapsed="0.108419"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.353205" elapsed="0.293564"/>
-</kw>
-<kw name="Sort Products By" owner="products_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_SORT_DROPDOWN}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.647555" elapsed="0.022249"/>
-</kw>
-<kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:46.670388" level="INFO">Selecting options from selection list 'css:[data-test="product-sort-container"]' by value hilo.</msg>
-<arg>${LOC_SORT_DROPDOWN}</arg>
-<arg>${option}</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.670040" elapsed="0.068106"/>
-</kw>
-<arg>hilo</arg>
-<doc>Selects a sort option from the dropdown.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.647097" elapsed="0.091237"/>
-</kw>
-<kw name="Get First Product Name" owner="products_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_FIRST_PRODUCT}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.739123" elapsed="0.019457"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:46.774816" level="INFO">${name} = Sauce Labs Fleece Jacket</msg>
-<var>${name}</var>
-<arg>${LOC_FIRST_PRODUCT}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.758840" elapsed="0.016023"/>
-</kw>
-<return>
-<value>${name}</value>
-<status status="PASS" start="2026-05-29T03:03:46.774953" elapsed="0.000064"/>
-</return>
-<msg time="2026-05-29T03:03:46.775158" level="INFO">${first} = Sauce Labs Fleece Jacket</msg>
-<var>${first}</var>
-<doc>Returns the name of the first product shown.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.738705" elapsed="0.036475"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${first}</arg>
-<arg>Sauce Labs Fleece Jacket</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.775331" elapsed="0.000376"/>
+<status status="FAIL" start="2026-05-29T03:42:07.791076" elapsed="0.001791">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.776162" elapsed="0.064131"/>
+<status status="PASS" start="2026-05-29T03:42:07.793225" elapsed="0.000093"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.775933" elapsed="0.064489"/>
+<status status="PASS" start="2026-05-29T03:42:07.793035" elapsed="0.000334"/>
 </kw>
 <doc>Sort by price high-to-low — first item must be Sauce Labs Fleece Jacket.</doc>
 <tag>products</tag>
 <tag>sorting</tag>
-<status status="PASS" start="2026-05-29T03:03:45.828085" elapsed="1.012395"/>
+<status status="FAIL" start="2026-05-29T03:42:07.790700" elapsed="0.002728">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
 <test id="s1-s3-t4" name="Sort Products A To Z" line="31">
 <kw name="Open Browser To Login Page" owner="keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:46.842085" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.841868" elapsed="0.481395"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.794513" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7ff157c87f90&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-29T03:42:07.794193" elapsed="0.000348"/>
 </kw>
-<kw name="Set Window Size" owner="SeleniumLibrary">
-<arg>1920</arg>
-<arg>1080</arg>
-<doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.323557" elapsed="0.019100"/>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-05-29T03:42:07.794887" level="FAIL">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</msg>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="FAIL" start="2026-05-29T03:42:07.794637" elapsed="0.000325">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.795094" elapsed="0.000025"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.795204" elapsed="0.000021"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.795307" elapsed="0.000019"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-05-29T03:42:07.795444" elapsed="0.000024"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LOC_USERNAME}</arg>
 <arg>${WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.342894" elapsed="0.025823"/>
+<status status="NOT RUN" start="2026-05-29T03:42:07.795557" elapsed="0.000020"/>
 </kw>
 <doc>Opens browser and goes to login page.</doc>
-<status status="PASS" start="2026-05-29T03:03:46.841556" elapsed="0.527395"/>
-</kw>
-<kw name="Login With" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:47.370167" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOC_USERNAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.369803" elapsed="0.101392"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:47.471836" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2026-05-29T03:03:47.502912" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${LOC_PASSWORD}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.471472" elapsed="0.079560"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:47.551724" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOC_LOGIN_BTN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.551325" elapsed="0.108427"/>
-</kw>
-<arg>${VALID_USER}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Logs in with the given username and password.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.369292" elapsed="0.290640"/>
-</kw>
-<kw name="Sort Products By" owner="products_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_SORT_DROPDOWN}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.660696" elapsed="0.022390"/>
-</kw>
-<kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:47.683649" level="INFO">Selecting options from selection list 'css:[data-test="product-sort-container"]' by value az.</msg>
-<arg>${LOC_SORT_DROPDOWN}</arg>
-<arg>${option}</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.683302" elapsed="0.032747"/>
-</kw>
-<arg>az</arg>
-<doc>Selects a sort option from the dropdown.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.660253" elapsed="0.055924"/>
-</kw>
-<kw name="Get First Product Name" owner="products_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${LOC_FIRST_PRODUCT}</arg>
-<arg>${WAIT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.716783" elapsed="0.014237"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-05-29T03:03:47.746478" level="INFO">${name} = Sauce Labs Backpack</msg>
-<var>${name}</var>
-<arg>${LOC_FIRST_PRODUCT}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.731229" elapsed="0.015293"/>
-</kw>
-<return>
-<value>${name}</value>
-<status status="PASS" start="2026-05-29T03:03:47.746628" elapsed="0.000061"/>
-</return>
-<msg time="2026-05-29T03:03:47.746832" level="INFO">${first} = Sauce Labs Backpack</msg>
-<var>${first}</var>
-<doc>Returns the name of the first product shown.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.716467" elapsed="0.030385"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${first}</arg>
-<arg>Sauce Labs Backpack</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.746993" elapsed="0.000328"/>
+<status status="FAIL" start="2026-05-29T03:42:07.794017" elapsed="0.001637">Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </kw>
 <kw name="Close Test Browser" owner="keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.747753" elapsed="0.063421"/>
+<status status="PASS" start="2026-05-29T03:42:07.796010" elapsed="0.000093"/>
 </kw>
 <doc>Closes the browser after each test.</doc>
-<status status="PASS" start="2026-05-29T03:03:47.747523" elapsed="0.063771"/>
+<status status="PASS" start="2026-05-29T03:42:07.795822" elapsed="0.000333"/>
 </kw>
 <doc>Default sort A-Z — first item must be Sauce Labs Backpack.</doc>
 <tag>products</tag>
 <tag>sorting</tag>
-<status status="PASS" start="2026-05-29T03:03:46.841083" elapsed="0.970267"/>
+<status status="FAIL" start="2026-05-29T03:42:07.793665" elapsed="0.002525">Setup failed:
+Calling method 'add_argument' failed: TypeError: ArgOptions.add_argument() got an unexpected keyword argument '--headless'</status>
 </test>
-<status status="PASS" start="2026-05-29T03:03:43.895068" elapsed="3.916688"/>
+<status status="FAIL" start="2026-05-29T03:42:07.781088" elapsed="0.015428"/>
 </suite>
-<status status="FAIL" start="2026-05-29T03:00:21.991034" elapsed="205.821342"/>
+<status status="FAIL" start="2026-05-29T03:42:07.437610" elapsed="0.359413"/>
 </suite>
 <statistics>
 <total>
-<stat pass="9" fail="3" skip="0">All Tests</stat>
+<stat pass="0" fail="12" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="2" fail="2" skip="0">cart</stat>
+<stat pass="0" fail="4" skip="0">cart</stat>
 <stat pass="0" fail="1" skip="0">checkout</stat>
 <stat pass="0" fail="1" skip="0">e2e</stat>
-<stat pass="3" fail="0" skip="0">login</stat>
-<stat pass="2" fail="1" skip="0">negative</stat>
-<stat pass="4" fail="1" skip="0">positive</stat>
-<stat pass="4" fail="0" skip="0">products</stat>
-<stat pass="3" fail="0" skip="0">sorting</stat>
+<stat pass="0" fail="3" skip="0">login</stat>
+<stat pass="0" fail="3" skip="0">negative</stat>
+<stat pass="0" fail="5" skip="0">positive</stat>
+<stat pass="0" fail="4" skip="0">products</stat>
+<stat pass="0" fail="3" skip="0">sorting</stat>
 </tag>
 <suite>
-<stat name="Tests" id="s1" pass="9" fail="3" skip="0">Tests</stat>
-<stat name="Cart Tests" id="s1-s1" pass="2" fail="3" skip="0">Tests.Cart Tests</stat>
-<stat name="Login Tests" id="s1-s2" pass="3" fail="0" skip="0">Tests.Login Tests</stat>
-<stat name="Product Tests" id="s1-s3" pass="4" fail="0" skip="0">Tests.Product Tests</stat>
+<stat name="Tests" id="s1" pass="0" fail="12" skip="0">Tests</stat>
+<stat name="Cart Tests" id="s1-s1" pass="0" fail="5" skip="0">Tests.Cart Tests</stat>
+<stat name="Login Tests" id="s1-s2" pass="0" fail="3" skip="0">Tests.Login Tests</stat>
+<stat name="Product Tests" id="s1-s3" pass="0" fail="4" skip="0">Tests.Product Tests</stat>
 </suite>
 </statistics>
 <errors>
