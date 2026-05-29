@@ -57,5 +57,5 @@ robot Tests/
 
 ## Author
 
-Htuu Will Oo — QA Engineer with 7+ years in banking and fintech.  
+Htuu Will Oo
 [LinkedIn](https://www.linkedin.com/in/htuuwill/) · [GitHub](https://github.com/hwilltester)
