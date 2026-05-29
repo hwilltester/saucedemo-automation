@@ -21,6 +21,8 @@ Remove Backpack From Cart
     [Documentation]    Removes backpack from cart page.
     Go To                               ${BASE_URL}/cart.html
     Wait Until Page Contains Element    css:[data-test="remove-sauce-labs-backpack"]    ${WAIT}
+    Scroll Element Into View            css:[data-test="remove-sauce-labs-backpack"]
+    Mouse Over                          css:[data-test="remove-sauce-labs-backpack"]
     Click Element                       css:[data-test="remove-sauce-labs-backpack"]
     Wait Until Element Is Not Visible   css:[data-test="remove-sauce-labs-backpack"]    ${WAIT}
 
